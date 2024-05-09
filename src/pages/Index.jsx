@@ -44,6 +44,17 @@ const Index = () => {
     </Button>
   );
 
+  const resetBoard = () => {
+    setBoard(Array(9).fill(null));
+    console.log("Board has been reset");
+  };
+
+  const resetAll = () => {
+    setBoard(Array(9).fill(null));
+    setScores({ player1: 0, player2: 0 });
+    console.log("Board and scores have been reset");
+  };
+
   return (
     <Flex direction="column" align="center" justify="center" h="100vh">
       <Flex justify="space-between" w="100%" p="4">
@@ -65,6 +76,10 @@ const Index = () => {
           {renderSquare(6)}
           {renderSquare(7)}
           {renderSquare(8)}
+        </Flex>
+        <Flex>
+          <Button colorScheme="teal" onClick={resetBoard}>Reset</Button>
+          <Button colorScheme="orange" onClick={resetAll}>Reset All</Button>
         </Flex>
       </VStack>
     </Flex>
